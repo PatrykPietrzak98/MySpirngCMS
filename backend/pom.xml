@@ -9,12 +9,15 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>pl.pietrzak</groupId>
-	<artifactId>simple_cms</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>CMS_APP</artifactId>
+	<version>0.0.1</version>
 	<name>SimpleCMSApi</name>
 	<description>CMS API</description>
 	<properties>
 		<java.version>21</java.version>
+		<spock-core.version>2.4-M4-groovy-4.0</spock-core.version>
+		<groovy-all.version>4.0.16</groovy-all.version>
+		<gmavenplus-plugin.version>3.0.2</gmavenplus-plugin.version>
 	</properties>
 	<dependencies>
 <!--		<dependency>-->
@@ -45,6 +48,20 @@
 <!--			<artifactId>spring-security-test</artifactId>-->
 <!--			<scope>test</scope>-->
 <!--		</dependency>-->
+
+<!--		SPOCK-->
+		<dependency>
+			<groupId>org.spockframework</groupId>
+			<artifactId>spock-core</artifactId>
+			<version>${spock-core.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.spockframework</groupId>
+			<artifactId>spock-spring</artifactId>
+			<version>${spock-core.version}</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -53,7 +70,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
+			<!--INITIALIZATION OF REACT PROJECT TO SERVE IT FORM JAR -->
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
 				<artifactId>frontend-maven-plugin</artifactId>
@@ -114,6 +131,24 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<!--			Spock INITIALIZATION-->
+			<plugin>
+				<groupId>org.codehaus.gmavenplus</groupId>
+				<artifactId>gmavenplus-plugin</artifactId>
+				<version>3.0.2</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compileTests</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.2.5</version>
 			</plugin>
 		</plugins>
 	</build>
