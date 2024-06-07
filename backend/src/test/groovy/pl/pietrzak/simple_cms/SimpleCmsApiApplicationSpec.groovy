@@ -9,9 +9,4 @@ class SimpleCmsApiApplicationSpec extends Specification {
         expect:
         true
     }
-
-    def "test always false"(){
-        expect:
-        false
-    }
 }

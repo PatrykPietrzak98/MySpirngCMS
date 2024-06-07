@@ -153,6 +153,7 @@
 				<configuration>
 					<includes>
 						<include>**/*Spec.java</include>
+						<include>**/*Tests.java</include>
 					</includes>
 					<testSourceDirectory>${project.basedir}/src/test/groovy</testSourceDirectory>
 				</configuration>
